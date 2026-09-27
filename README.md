@@ -9,7 +9,7 @@ This project uses a perfume store as the example, but **I can build websites for
 
 If you want a website like this for your business or project, **feel free to contact me.**
 
-🔗 **Live Demo:** YOUR_VERCEL_URL
+🔗 **Live Demo:** https://storecraft-fawn.vercel.app/
 
 **Contact:**
-[GitHub](https://github.com/Mmyz03) • [LinkedIn](https://www.linkedin.com/in/mohammed-mayiz-mohtesham-800a6237a/)
+• [LinkedIn](https://www.linkedin.com/in/mohammed-mayiz-mohtesham-800a6237a/)
