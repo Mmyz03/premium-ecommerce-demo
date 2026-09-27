@@ -12,4 +12,5 @@ If you want a website like this for your business or project, **feel free to con
 🔗 **Live Demo:** https://storecraft-fawn.vercel.app/
 
 **Contact:**
-• [LinkedIn](https://www.linkedin.com/in/mohammed-mayiz-mohtesham-800a6237a/)
+**Contact:** • [LinkedIn](https://www.linkedin.com/in/mohammed-mayiz-mohtesham-800a6237a/) • [Email](mailto:mohammadmayiz9060@gmail.com)
+
