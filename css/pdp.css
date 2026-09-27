@@ -1,0 +1,610 @@
+/**
+ * ===================================================================
+ * MAISON AURA — PRODUCT DETAIL PAGE (PDP) & TOAST STYLES
+ * ===================================================================
+ */
+
+/* ===================================================================
+   1. PRODUCT DETAIL LAYOUT
+   =================================================================== */
+.pdp-section {
+  padding: var(--space-8) 0 var(--space-20);
+  background-color: var(--color-bg-primary);
+}
+
+.pdp-breadcrumbs {
+  margin-bottom: var(--space-8);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-muted);
+}
+
+.pdp-breadcrumbs a {
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.pdp-breadcrumbs a:hover {
+  color: var(--color-accent-gold-deep);
+}
+
+.pdp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: var(--space-16);
+  align-items: flex-start;
+}
+
+/* ===================================================================
+   2. GALLERY & MEDIA VIEWER
+   =================================================================== */
+.pdp-gallery {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-6));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.pdp-main-image-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.pdp-main-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.pdp-main-image-frame:hover img {
+  transform: scale(1.04);
+}
+
+.pdp-gallery-badge {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  background-color: rgba(250, 248, 245, 0.94);
+  backdrop-filter: blur(4px);
+  padding: 4px var(--space-3);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.pdp-thumbnails {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.pdp-thumb-btn {
+  width: 72px;
+  height: 72px;
+  border: 1px solid var(--color-border-medium);
+  background-color: var(--color-bg-secondary);
+  padding: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.pdp-thumb-btn.is-active,
+.pdp-thumb-btn:hover {
+  border-color: var(--color-accent-gold-deep);
+  border-width: 1.5px;
+}
+
+.pdp-thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===================================================================
+   3. PDP CONTENT & PURCHASE CONTROLS
+   =================================================================== */
+.pdp-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.pdp-header-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.pdp-family-label {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-accent-gold-deep);
+  font-weight: 600;
+}
+
+.pdp-stock-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-2xs);
+  color: var(--color-status-success);
+  font-weight: 600;
+}
+
+.pdp-stock-status.is-out-of-stock {
+  color: var(--color-status-error, #b94a48);
+}
+
+.stock-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--color-status-success);
+  border-radius: var(--radius-full);
+}
+
+.stock-dot.stock-dot-out {
+  background-color: var(--color-status-error, #b94a48);
+}
+
+
+.pdp-product-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.pdp-concentration-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  margin-bottom: var(--space-5);
+}
+
+.pdp-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.pdp-current-price {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.pdp-tax-note {
+  font-size: var(--text-2xs);
+  color: var(--color-text-muted);
+}
+
+.pdp-story-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-8);
+}
+
+/* Bottle Size Selector */
+.pdp-option-group {
+  margin-bottom: var(--space-6);
+}
+
+.pdp-option-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.pdp-option-title {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-primary);
+}
+
+.pdp-size-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.pdp-size-btn {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border-medium);
+  background-color: var(--color-bg-surface);
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pdp-size-btn.is-active {
+  border-color: var(--color-text-primary);
+  background-color: var(--color-bg-secondary);
+  box-shadow: 0 0 0 1px var(--color-text-primary);
+}
+
+.pdp-size-name {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.pdp-size-cost {
+  font-size: var(--text-2xs);
+  color: var(--color-text-secondary);
+}
+
+/* Purchase Bar: Quantity Stepper + Add to Bag */
+.pdp-purchase-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.pdp-stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-border-medium);
+  background-color: var(--color-bg-surface);
+  height: 52px;
+}
+
+.stepper-btn {
+  width: 44px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-md);
+  color: var(--color-text-primary);
+  transition: background-color var(--transition-fast);
+}
+
+.stepper-btn:hover {
+  background-color: var(--color-bg-secondary);
+}
+
+.stepper-value {
+  width: 36px;
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.pdp-add-to-bag-btn {
+  flex-grow: 1;
+  height: 52px;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-widest);
+  border: 1px solid var(--color-bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  transition: all var(--transition-normal);
+}
+
+.pdp-add-to-bag-btn:hover {
+  background-color: #22252C;
+  border-color: var(--color-accent-gold);
+  color: var(--color-accent-gold-hover);
+  box-shadow: 0 4px 18px rgba(18, 19, 22, 0.25);
+}
+
+/* ===================================================================
+   4. OLFACTORY PYRAMID BREAKDOWN (PDP CARDS)
+   =================================================================== */
+.pdp-pyramid-block {
+  margin-bottom: var(--space-10);
+  padding: var(--space-6);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.pdp-pyramid-heading {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+  color: var(--color-text-primary);
+}
+
+.pdp-pyramid-tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.pdp-tier-box {
+  padding: var(--space-4);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.pdp-tier-name {
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-accent-gold-deep);
+  margin-bottom: var(--space-2);
+}
+
+.pdp-tier-notes {
+  font-size: var(--text-xs);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* ===================================================================
+   5. LUXURY ACCORDIONS
+   =================================================================== */
+.pdp-accordion-wrap {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-border-subtle);
+  margin-bottom: var(--space-8);
+}
+
+.accordion-item {
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) 0;
+  text-align: left;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-primary);
+  transition: color var(--transition-fast);
+}
+
+.accordion-header:hover {
+  color: var(--color-accent-gold-deep);
+}
+
+.accordion-icon {
+  font-size: var(--text-md);
+  font-weight: 300;
+  transition: transform var(--transition-fast);
+}
+
+.accordion-item.is-open .accordion-icon {
+  transform: rotate(45deg);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-normal);
+}
+
+.accordion-item.is-open .accordion-body {
+  max-height: 350px;
+}
+
+.accordion-content {
+  padding-bottom: var(--space-5);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* ===================================================================
+   6. ASSURANCE BADGES
+   =================================================================== */
+.pdp-reassurance-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.reassurance-box {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.reassurance-box svg {
+  color: var(--color-accent-gold-deep);
+  min-width: 16px;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+}
+
+.reassurance-title {
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.reassurance-desc {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+/* ===================================================================
+   7. TOAST NOTIFICATIONS
+   =================================================================== */
+.cart-toast-container {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  pointer-events: none;
+}
+
+.cart-toast {
+  pointer-events: auto;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border-left: 3px solid var(--color-accent-gold);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all var(--transition-normal);
+  max-width: 380px;
+}
+
+.cart-toast.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toast-icon {
+  color: var(--color-accent-gold);
+  font-size: var(--text-md);
+}
+
+.toast-message {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-text-light);
+}
+
+.toast-action {
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-accent-gold);
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+/* ===================================================================
+   8. RESPONSIVE BREAKPOINTS
+   =================================================================== */
+@media (max-width: 1024px) {
+  .pdp-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+  
+  .pdp-gallery {
+    position: static;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .pdp-product-title {
+    font-size: clamp(1.75rem, 6vw, 2.25rem);
+    margin-bottom: var(--space-1);
+  }
+
+  .pdp-size-selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  .pdp-size-btn {
+    min-height: 52px;
+    padding: var(--space-3);
+  }
+
+  .pdp-purchase-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+  
+  .pdp-stepper {
+    justify-content: space-between;
+    height: 48px;
+    width: 100%;
+    max-width: none;
+  }
+
+  .stepper-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .pdp-add-to-bag-btn {
+    height: 52px;
+    font-size: 13px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pdp-pyramid-tiers {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  
+  .pdp-reassurance-strip {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .accordion-header {
+    min-height: 48px;
+    padding: var(--space-4) 0;
+  }
+
+  .cart-toast-container {
+    left: var(--space-3);
+    right: var(--space-3);
+    bottom: var(--space-4);
+    max-width: none;
+  }
+
+  .cart-toast {
+    max-width: 100%;
+  }
+}
+

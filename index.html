@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAISON AURA — Artisanal Luxury Parfumerie</title>
+  <meta name="description" content="Discover artisanal luxury fragrances by Maison Aura. Handcrafted Extrait de Parfum formulated with rare botanicals, precious woods, and enduring sillage.">
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Design System & Modular Stylesheets -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/catalog.css">
+  <link rel="stylesheet" href="css/pdp.css">
+  <link rel="stylesheet" href="css/cart-drawer.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/checkout.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/account.css">
+</head>
+<body>
+
+  <!-- 1. ANNOUNCEMENT TICKER -->
+  <div class="announcement-bar" id="announcementBar" role="region" aria-label="Announcement">
+    <div class="announcement-content">
+      <span>Complimentary Express Shipping on all orders above ₹2,500</span>
+      <span class="announcement-separator">✦</span>
+      <span class="announcement-highlight">Includes 2 Discovery Samples</span>
+    </div>
+  </div>
+
+  <!-- 2. SITE HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-inner">
+        
+        <!-- Brand Logo -->
+        <a href="#home" class="brand-logo" id="brandLogoLink" aria-label="Maison Aura Home">
+          <span class="brand-title">Maison Aura</span>
+          <span class="brand-subtitle">Haute Parfumerie</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav" id="desktopNav" aria-label="Main Navigation">
+          <a href="#home" class="nav-link is-active" data-nav="home">Home</a>
+          <a href="#shop" class="nav-link" data-nav="shop">Shop Editions</a>
+          <a href="#collections" class="nav-link" data-nav="collections">Collections</a>
+          <a href="#olfactory-pyramid" class="nav-link" data-nav="guide">Scent Guide</a>
+          <a href="#our-story" class="nav-link" data-nav="story">Our Story</a>
+          <a href="#contact" class="nav-link" data-nav="contact">Concierge</a>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <!-- Search Trigger -->
+          <button class="action-btn" id="searchTrigger" aria-label="Search Fragrances" title="Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+
+          <!-- Customer Account Trigger & Dropdown Wrap -->
+          <div class="account-menu-wrap">
+            <button class="action-btn" id="accountTrigger" aria-label="Customer Account" title="Account / Sign In">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span class="account-badge-indicator" id="accountBadge">A</span>
+            </button>
+
+            <!-- Authenticated Account Dropdown -->
+            <div class="account-dropdown" id="accountDropdown" role="menu" aria-label="Account Menu">
+              <div class="dropdown-user-header">
+                <div class="dropdown-user-name" id="accountDropdownName">Alexander Wright</div>
+                <div class="dropdown-user-email" id="accountDropdownEmail">alexander@example.com</div>
+              </div>
+              <div class="dropdown-menu-list">
+                <a href="#account" class="dropdown-menu-item" id="accountMenuProfileLink">
+                  <span>My Profile</span>
+                  <span style="font-size: 10px; color: var(--color-accent-gold-deep);">Private Salon</span>
+                </a>
+                <a href="#orders" class="dropdown-menu-item" id="accountMenuOrdersLink">
+                  <span>Order History</span>
+                  <span style="font-size: 10px; color: var(--color-accent-gold-deep);">Flacon Manifests</span>
+                </a>
+                <button class="dropdown-signout-btn" id="signOutBtn">Sign Out</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shopping Bag Trigger -->
+          <button class="action-btn" id="cartTrigger" aria-label="Shopping Bag (0 items)" title="Shopping Bag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-badge" id="cartBadgeCount">0</span>
+          </button>
+
+          <!-- Mobile Nav Toggle -->
+          <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobileDrawer">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. MOBILE NAVIGATION DRAWER & BACKDROP -->
+  <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop" aria-hidden="true"></div>
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <div>
+      <div class="drawer-header">
+        <a href="#home" class="brand-logo">
+          <span class="brand-title">Maison Aura</span>
+          <span class="brand-subtitle">Haute Parfumerie</span>
+        </a>
+        <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="drawer-nav-list" aria-label="Mobile Links">
+        <a href="#home" class="drawer-nav-link">Home <span>→</span></a>
+        <a href="#shop" class="drawer-nav-link">Shop All Editions <span>→</span></a>
+        <a href="#collections" class="drawer-nav-link">Curated Collections <span>→</span></a>
+        <a href="#olfactory-pyramid" class="drawer-nav-link">Olfactory Scent Guide <span>→</span></a>
+        <a href="#our-story" class="drawer-nav-link">Brand Philosophy <span>→</span></a>
+        <a href="#contact" class="drawer-nav-link">Client Concierge <span>→</span></a>
+      </nav>
+    </div>
+
+    <div class="drawer-footer">
+      <p>Artisanal Extrait de Parfum formulated in Grasse & India.</p>
+      <p style="margin-top: 8px; color: var(--color-accent-gold-deep);">Concierge: care@maisonaura.com</p>
+    </div>
+  </div>
+
+  <!-- 4. SLIDE-OVER SHOPPING BAG DRAWER -->
+  <div class="cart-drawer-backdrop" id="cartDrawerBackdrop" aria-hidden="true"></div>
+  <div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping Bag">
+    
+    <!-- Drawer Header -->
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title-wrap">
+        <h2 class="cart-drawer-title">Shopping Bag</h2>
+        <span class="cart-drawer-count" id="cartDrawerCount">(0 items)</span>
+      </div>
+      <button class="cart-drawer-close-btn" id="cartDrawerCloseBtn" aria-label="Close shopping bag">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Free Shipping Progress Tracker -->
+    <div class="cart-shipping-incentive">
+      <div id="shippingIncentiveText">
+        Add <span class="shipping-text-highlight">₹2,500</span> more for Complimentary Express Delivery
+      </div>
+      <div class="shipping-progress-track">
+        <div class="shipping-progress-bar" id="shippingProgressBar" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Dynamic Cart Items Container -->
+    <div class="cart-items-container" id="cartDrawerItems">
+      <!-- Dynamically populated by MaisonCart.renderDrawer() in js/cart.js -->
+    </div>
+
+    <!-- Drawer Footer / Summary & Actions -->
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotalDisplay">₹0</span>
+      </div>
+      <div class="cart-summary-row">
+        <span>Express Delivery</span>
+        <span style="color: var(--color-status-success); font-weight: 500;">Complimentary</span>
+      </div>
+      <div class="cart-summary-row">
+        <span>2ml Discovery Samples</span>
+        <span style="color: var(--color-accent-gold-deep); font-weight: 500;">Included (x2)</span>
+      </div>
+      <div class="cart-summary-row total-row">
+        <span>Estimated Total</span>
+        <span class="cart-summary-total" id="cartTotalDisplay">₹0</span>
+      </div>
+
+      <button class="cart-checkout-btn" id="cartCheckoutBtn">
+        <span>Proceed to Checkout</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+
+      <button class="cart-continue-btn" id="cartContinueBtn">Continue Exploring Editions</button>
+    </div>
+
+  </div>
+
+  <!-- 5. FORCED CUSTOMER AUTHENTICATION MODAL -->
+  <div class="auth-modal-backdrop" id="authModalBackdrop" aria-hidden="true">
+    <div class="auth-modal" id="authModal" role="dialog" aria-modal="true" aria-label="Customer Authentication">
+      
+      <button class="auth-modal-close" id="authModalCloseBtn" aria-label="Close dialog">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="auth-modal-header">
+        <span class="eyebrow" style="margin-bottom: 4px;">✦ Maison Aura Concierge</span>
+        <h2 class="auth-modal-title" id="authModalTitle">Sign in to Continue</h2>
+        <p class="auth-modal-subtitle" id="authModalSubtitle">
+          An account is required to place your order, ensure artisanal batch reservation, and track secure dispatch.
+        </p>
+      </div>
+
+      <div class="auth-gate-notice" id="authGateNotice" style="display: none;">
+        <span>🔒 Guest checkout is disabled. Please sign in to proceed.</span>
+      </div>
+
+      <div class="auth-modal-body">
+        
+        <!-- Google OAuth Simulation Button -->
+        <button class="btn-google" id="googleAuthBtn" type="button">
+          <svg class="google-icon" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+          <span>Continue with Google</span>
+        </button>
+
+        <div class="auth-divider">or continue with email</div>
+
+        <!-- STATE A: LOGIN FORM -->
+        <form id="loginForm" class="auth-form" onsubmit="event.preventDefault(); handleLoginSubmit();">
+          <div class="auth-form-group">
+            <label class="auth-label" for="loginEmail">Email Address</label>
+            <input type="email" id="loginEmail" class="auth-input" placeholder="name@example.com" required autocomplete="email">
+            <div class="auth-error-msg" id="loginEmailError">Please enter a valid email address.</div>
+          </div>
+
+          <div class="auth-form-group">
+            <label class="auth-label" for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" class="auth-input" placeholder="••••••••" required autocomplete="current-password">
+            <div class="auth-error-msg" id="loginPasswordError">Please enter your password.</div>
+          </div>
+
+          <div class="auth-form-row">
+            <span class="auth-forgot-link" id="forgotPasswordLink">Forgot Password?</span>
+          </div>
+
+          <button type="submit" class="auth-submit-btn" id="loginSubmitBtn">Sign In to Account</button>
+
+          <div class="auth-switch-prompt">
+            <span>New to Maison Aura?</span>
+            <span class="auth-switch-link" id="switchToRegisterLink">Create an Account</span>
+          </div>
+        </form>
+
+        <!-- STATE B: REGISTER FORM -->
+        <form id="registerForm" class="auth-form" style="display: none;" onsubmit="event.preventDefault(); handleRegisterSubmit();">
+          <div class="auth-form-group">
+            <label class="auth-label" for="regName">Full Name</label>
+            <input type="text" id="regName" class="auth-input" placeholder="Alexander Wright" required autocomplete="name">
+            <div class="auth-error-msg" id="regNameError">Please enter your full name.</div>
+          </div>
+
+          <div class="auth-form-group">
+            <label class="auth-label" for="regEmail">Email Address</label>
+            <input type="email" id="regEmail" class="auth-input" placeholder="name@example.com" required autocomplete="email">
+            <div class="auth-error-msg" id="regEmailError">Please enter a valid email address.</div>
+          </div>
+
+          <div class="auth-form-group">
+            <label class="auth-label" for="regPassword">Password (6+ characters)</label>
+            <input type="password" id="regPassword" class="auth-input" placeholder="••••••••" required autocomplete="new-password">
+            <div class="auth-error-msg" id="regPasswordError">Password must be at least 6 characters.</div>
+          </div>
+
+          <div class="auth-form-group">
+            <label class="auth-label" for="regConfirmPassword">Confirm Password</label>
+            <input type="password" id="regConfirmPassword" class="auth-input" placeholder="••••••••" required autocomplete="new-password">
+            <div class="auth-error-msg" id="regConfirmError">Passwords do not match.</div>
+          </div>
+
+          <button type="submit" class="auth-submit-btn" id="registerSubmitBtn">Create Account & Continue</button>
+
+          <div class="auth-switch-prompt">
+            <span>Already have an account?</span>
+            <span class="auth-switch-link" id="switchToLoginLink">Sign In</span>
+          </div>
+        </form>
+
+        <!-- STATE C: FORGOT PASSWORD FORM -->
+        <form id="forgotForm" class="auth-form" style="display: none;" onsubmit="event.preventDefault(); handleForgotSubmit();">
+          <p style="font-size: var(--text-xs); color: var(--color-text-secondary); margin-bottom: var(--space-4);">
+            Enter your email address below and we will send instructions to reset your account password.
+          </p>
+          <div class="auth-form-group">
+            <label class="auth-label" for="forgotEmail">Email Address</label>
+            <input type="email" id="forgotEmail" class="auth-input" placeholder="name@example.com" required>
+          </div>
+          <button type="submit" class="auth-submit-btn">Send Recovery Instructions</button>
+
+          <div class="auth-switch-prompt">
+            <span class="auth-switch-link" id="forgotBackToLoginLink">← Back to Sign In</span>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 6. POLICY & CLIENT CARE MODAL -->
+  <div class="policy-modal-backdrop" id="policyModalBackdrop" aria-hidden="true">
+    <div class="policy-modal" role="dialog" aria-modal="true" aria-labelledby="policyModalTitle">
+      <div class="policy-modal-header">
+        <span class="policy-modal-eyebrow" id="policyModalEyebrow">✦ Maison Aura Atelier</span>
+        <h2 class="policy-modal-title" id="policyModalTitle">Boutique Policy</h2>
+        <button class="policy-modal-close" id="policyModalCloseBtn" onclick="closePolicyModal()" aria-label="Close policy modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="policy-modal-body" id="policyModalBody">
+        <!-- Content inserted dynamically based on selected policy -->
+      </div>
+      <div class="policy-modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="closePolicyModal()">Close Information</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN VIEW CONTAINER -->
+  <main id="mainContent">
+
+
+    <!-- ===================================================================
+         VIEW 1: HOMEPAGE (Default)
+         =================================================================== -->
+    <div id="homeView" class="view-panel">
+
+      <!-- 6. HOMEPAGE HERO CAMPAIGN -->
+      <section class="hero-section" aria-label="Hero Campaign">
+        <div class="container">
+          <div class="hero-grid">
+            
+            <!-- Hero Copy -->
+            <div class="hero-content">
+              <div class="hero-eyebrow">
+                <span class="eyebrow">✦ Extrait de Parfum Concentration</span>
+              </div>
+              
+              <h1 class="hero-title">Fragrance Crafted as <em>High Art</em></h1>
+              
+              <p class="hero-description">
+                Artisanal formulations distilled from rare aged botanicals, rare Mysore sandalwood, and precious resins. An intimate olfactory journey of enduring elegance and sophisticated sillage.
+              </p>
+
+              <div class="hero-actions">
+                <a href="#shop" class="btn btn-primary btn-lg">
+                  <span>Explore Collection</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+                <a href="#olfactory-pyramid" class="btn btn-secondary btn-lg">Discover Scent Notes</a>
+              </div>
+
+              <div class="hero-trust-strip">
+                <div class="trust-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                  <span>30% Oil Concentration</span>
+                </div>
+                <div class="trust-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 14 14"></polyline>
+                  </svg>
+                  <span>12+ Hour Longevity</span>
+                </div>
+                <div class="trust-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                  <span>Cruelty-Free & Artisanal</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hero Visual Area -->
+            <div class="hero-visual-wrap">
+              <div class="hero-image-frame">
+                <img src="assets/images/hero_perfume_campaign.jpg" alt="Maison Aura Alabaster and Oud Extrait de Parfum on a warm travertine stone pedestal" width="600" height="750" loading="eager">
+                
+                <!-- Floating Card -->
+                <a href="#product/alabaster-oud" class="hero-floating-card" style="text-decoration: none;">
+                  <div class="floating-card-tag">Featured Edition</div>
+                  <div class="floating-card-title">Alabaster & Oud</div>
+                  <div class="floating-card-notes">Cardamom • Taif Rose • Smoked Oud</div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. BRAND PILLARS / CRAFTSMANSHIP STRIP -->
+      <section class="pillars-section" aria-label="Brand Commitments">
+        <div class="container">
+          <div class="pillars-grid">
+            
+            <div class="pillar-item">
+              <div class="pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <div>
+                <h2 class="pillar-title">Artisanal Extraction</h2>
+                <p class="pillar-desc">Slow-macerated precious botanicals and rare resins for profound depth.</p>
+              </div>
+            </div>
+
+            <div class="pillar-item">
+              <div class="pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <div>
+                <h2 class="pillar-title">High Concentration</h2>
+                <p class="pillar-desc">Extrait de Parfum purity ensuring intimate, all-day sillage.</p>
+              </div>
+            </div>
+
+            <div class="pillar-item">
+              <div class="pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                </svg>
+              </div>
+              <div>
+                <h2 class="pillar-title">Discovery Included</h2>
+                <p class="pillar-desc">Two complimentary 2ml discovery vials included with every full bottle.</p>
+              </div>
+            </div>
+
+            <div class="pillar-item">
+              <div class="pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="1" y="3" width="15" height="13"></rect>
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                  <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                  <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+              </div>
+              <div>
+                <h2 class="pillar-title">Complimentary Delivery</h2>
+                <p class="pillar-desc">Secured, temperature-controlled transit across India within 48-72 hrs.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. FEATURED EDITIONS COLLECTION -->
+      <section class="featured-section" id="collections" aria-label="Curated Perfume Collection">
+        <div class="container">
+          
+          <div class="section-header">
+            <span class="eyebrow">✦ The Permanent Collection</span>
+            <h2 class="section-title">The Curated Editions</h2>
+            <p class="section-subtitle">
+              Distinctive olfactory compositions designed to linger on the skin like personal poetry. Hand-numbered batches.
+            </p>
+          </div>
+
+          <!-- Featured Grid Container dynamically rendered -->
+          <div class="product-grid" id="featuredProductGrid">
+            <!-- Dynamically populated from MAISON_PRODUCTS in js/main.js -->
+          </div>
+
+          <div class="featured-cta-wrap">
+            <a href="#shop" class="btn btn-secondary btn-lg">
+              <span>View Complete Fragrance Portfolio</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 9. OLFACTORY PYRAMID DISCOVERY SECTION (CONTRAST DARK) -->
+      <section class="discovery-section" id="olfactory-pyramid" aria-label="The Architecture of Scent">
+        <div class="container">
+          <div class="discovery-grid">
+            
+            <div class="discovery-content">
+              <span class="eyebrow eyebrow-dark">✦ The Art of Formulation</span>
+              <h2 class="section-title">The Architecture of Scent</h2>
+              <p class="section-subtitle">
+                Every Maison Aura fragrance is engineered in three harmonious olfactory movements, meticulously designed to unveil new dimensions as the hours progress on your warm skin.
+              </p>
+              <a href="#shop" class="btn btn-gold btn-md">Explore Notes Breakdown</a>
+            </div>
+
+            <div class="pyramid-card">
+              
+              <div class="pyramid-tier">
+                <span class="tier-number">01</span>
+                <div>
+                  <h3 class="tier-title">Top Notes • The First Impression</h3>
+                  <p class="tier-desc">0–15 Minutes. Volatile, sparkling citrus, luminous aldehydes, and invigorating rare spices that greet the senses upon initial misting.</p>
+                </div>
+              </div>
+
+              <div class="pyramid-tier">
+                <span class="tier-number">02</span>
+                <div>
+                  <h3 class="tier-title">Heart Notes • The Olfactory Soul</h3>
+                  <p class="tier-desc">15 Minutes – 4 Hours. The emotional character of the perfume. Rich florals, hand-selected resins, and aromatics that define your presence.</p>
+                </div>
+              </div>
+
+              <div class="pyramid-tier">
+                <span class="tier-number">03</span>
+                <div>
+                  <h3 class="tier-title">Base Notes • The Enduring Resonance</h3>
+                  <p class="tier-desc">4 – 12+ Hours. Heavy, precious molecules — aged oud, ambergris, Mysore sandalwood, and musk that fuse seamlessly with your skin's natural warmth.</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. BRAND PHILOSOPHY / EDITORIAL STATEMENT -->
+      <section class="statement-section" id="our-story" aria-label="Brand Philosophy">
+        <div class="container">
+          <div class="statement-content">
+            <span class="eyebrow">✦ Maison Aura Manifesto</span>
+            <blockquote class="statement-quote">
+              “True luxury in perfumery is not loud; it is intimate, deliberate, and unforgettable. We craft scents not merely to be worn, but to become an inseparable aura of the wearer.”
+            </blockquote>
+            <p class="statement-author">— Master Nose & Creative Director</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ===================================================================
+         VIEW 2: SHOP / CATALOG PAGE
+         =================================================================== -->
+    <div id="catalogView" class="view-panel" style="display: none;">
+      <section class="catalog-section" aria-label="All Fragrance Editions">
+        <div class="container">
+          
+          <div class="catalog-header">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+              <a href="#home">Home</a>
+              <span class="breadcrumbs-sep">/</span>
+              <span>Shop All Editions</span>
+            </nav>
+            <span class="eyebrow">✦ The Fragrance Portfolio</span>
+            <h1 class="catalog-title">Artisanal Extrait de Parfum</h1>
+            <p class="catalog-desc">
+              Explore our complete collection of handcrafted, high-concentration extrait formulations. Each bottle is macerated and poured in limited batches with rare natural raw materials.
+            </p>
+          </div>
+
+          <!-- Catalog Toolbar -->
+          <div class="catalog-toolbar">
+            <div class="catalog-filters" id="catalogCategoryFilters">
+              <button class="catalog-filter-btn is-active" data-category="all">All Editions (<span id="countAll">7</span>)</button>
+              <button class="catalog-filter-btn" data-category="woody">Woody & Resinous</button>
+              <button class="catalog-filter-btn" data-category="floral">Floral & Sensual</button>
+              <button class="catalog-filter-btn" data-category="citrus">Fresh & Citrus</button>
+              <button class="catalog-filter-btn" data-category="leather">Leather & Smoky</button>
+            </div>
+
+            <div class="catalog-sorting">
+              <label for="catalogSortSelect">Sort by:</label>
+              <select id="catalogSortSelect" class="sort-select" aria-label="Sort products">
+                <option value="featured">Featured Editions</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="name-asc">Alphabetical (A–Z)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Dynamic Catalog Grid -->
+          <div class="catalog-grid" id="catalogProductGrid">
+            <!-- Dynamically populated from MAISON_PRODUCTS in js/main.js -->
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ===================================================================
+         VIEW 3: PRODUCT DETAIL PAGE (PDP)
+         =================================================================== -->
+    <div id="pdpView" class="view-panel" style="display: none;">
+      <section class="pdp-section" id="pdpContainer" aria-label="Product Details">
+        <!-- Dynamically rendered by renderPDP() in js/main.js -->
+      </section>
+    </div>
+
+    <!-- ===================================================================
+         VIEW 4: CHECKOUT GATE PLACEHOLDER VIEW (PHASE 4 TRANSITION)
+         =================================================================== -->
+    <div id="checkoutView" class="view-panel" style="display: none;">
+      <section class="checkout-gate-section" aria-label="Checkout Gateway">
+        <div class="container">
+          <div class="checkout-placeholder-card">
+            <div class="checkout-gate-icon">✦</div>
+            <h1 class="checkout-gate-title">Checkout Authorization Verified</h1>
+            <p class="checkout-gate-desc">
+              You have successfully passed the customer authentication gate. Your artisanal perfume order is prepared for multi-step shipping details, review, and payment processing in <strong>Phase 5</strong>.
+            </p>
+
+            <div class="checkout-user-badge">
+              <span>👤 Authenticated Customer:</span>
+              <strong id="checkoutCustomerName">Alexander Wright</strong>
+              <span style="color: var(--color-text-muted);">•</span>
+              <span id="checkoutCustomerEmail">alexander@example.com</span>
+            </div>
+
+            <div class="checkout-items-preview" id="checkoutItemsPreview">
+              <!-- Dynamically populated from MaisonCart -->
+            </div>
+
+            <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+              <button class="btn btn-primary btn-md" onclick="MaisonCart.openDrawer()">
+                <span>Review Shopping Bag</span>
+              </button>
+              <a href="#shop" class="btn btn-secondary btn-md">Continue Shopping</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===================================================================
+         VIEW 5: ADMIN OPERATIONS PORTAL (PHASE 6)
+         =================================================================== -->
+    <div id="adminView" class="view-panel" style="display: none;">
+      <!-- Dynamically populated by MaisonAdmin.initAdmin() in js/admin.js -->
+    </div>
+
+    <!-- ===================================================================
+         VIEW 6: CUSTOMER ACCOUNT & ORDER HISTORY (PHASE 7)
+         =================================================================== -->
+    <div id="accountView" class="view-panel" style="display: none;">
+      <!-- Dynamically populated by MaisonAccount.initAccount() in js/account.js -->
+    </div>
+
+  </main>
+
+  <!-- 11. SITE FOOTER -->
+  <footer class="site-footer" id="contact" role="contentinfo">
+    <div class="container">
+      
+      <div class="footer-top">
+        
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="#home" class="brand-logo">
+            <span class="brand-title">Maison Aura</span>
+            <span class="brand-subtitle">Haute Parfumerie</span>
+          </a>
+          <p class="footer-desc">
+            Artisanal fine fragrance house dedicated to high-concentration Extrait de Parfum and bespoke olfactory storytelling.
+          </p>
+        </div>
+
+        <!-- Boutique Links -->
+        <div>
+          <h3 class="footer-col-title">The Boutique</h3>
+          <ul class="footer-links">
+            <li><a href="#shop">Shop All Editions</a></li>
+            <li><a href="#collections">Curated Collections</a></li>
+            <li><a href="#olfactory-pyramid">Scent Guide & Pyramid</a></li>
+            <li><a href="#our-story">Artisanal Craftsmanship</a></li>
+            <li><a href="#admin" style="color: var(--color-accent-gold-deep);">✦ Operations Portal (Admin)</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Care & Policies -->
+        <div>
+          <h3 class="footer-col-title">Client Care</h3>
+          <ul class="footer-links">
+            <li><a href="#contact">Concierge & Contact</a></li>
+            <li><a href="#shipping-policy" onclick="openPolicyModal('shipping'); return false;">Shipping & Transit Policy</a></li>
+            <li><a href="#refund-policy" onclick="openPolicyModal('refund'); return false;">Refund & Returns Policy</a></li>
+            <li><a href="#privacy-policy" onclick="openPolicyModal('privacy'); return false;">Privacy Policy</a></li>
+            <li><a href="#terms-of-service" onclick="openPolicyModal('terms'); return false;">Terms of Service</a></li>
+
+          </ul>
+        </div>
+
+        <!-- Newsletter / Private Salon -->
+        <div>
+          <h3 class="footer-col-title">The Private Salon</h3>
+          <p class="footer-desc" style="margin-top: 0; margin-bottom: 12px;">
+            Receive private notifications for limited harvests, batch releases, and exclusive formulation previews.
+          </p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Maison Aura Private Salon.');">
+            <input type="email" class="newsletter-input" placeholder="Enter your email address" required aria-label="Email address for private salon">
+            <button type="submit" class="newsletter-submit" aria-label="Subscribe to Private Salon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </form>
+          <p class="newsletter-note">We respect your privacy. Unsubscribe at any time.</p>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Legal & Payment -->
+      <div class="footer-bottom">
+        <p>© 2026 Maison Aura Parfums. All Rights Reserved. Single-Brand Luxury Fragrance Demo. • <a href="#admin" style="color: var(--color-accent-gold-deep); text-decoration: none;">Admin Access</a></p>
+        
+        <div class="footer-badges">
+          <span class="payment-badge">UPI / GPay / PhonePe</span>
+          <span class="payment-badge">RuPay</span>
+          <span class="payment-badge">Visa</span>
+          <span class="payment-badge">Mastercard</span>
+          <span class="payment-badge">NetBanking</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Modular Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/orders.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/account.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

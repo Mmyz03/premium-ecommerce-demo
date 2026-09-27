@@ -1,0 +1,910 @@
+/**
+ * ===================================================================
+ * MAISON AURA — CUSTOMER ACCOUNT & ORDER HISTORY STYLES
+ * Phase 7 — Single-Brand Luxury Perfume E-Commerce Demo
+ * ===================================================================
+ */
+
+.account-section {
+  padding: var(--space-8) 0 var(--space-16);
+  background-color: var(--color-bg-primary);
+  min-height: 80vh;
+}
+
+.account-container {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* ===================================================================
+   1. ACCOUNT EXECUTIVE HEADER
+   =================================================================== */
+.account-header-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-8);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.account-header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.account-avatar-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-accent-gold-deep) 0%, var(--color-accent-gold) 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(197, 168, 128, 0.3);
+  flex-shrink: 0;
+}
+
+.account-profile-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-patron-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-widest);
+  color: var(--color-accent-gold-deep);
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+}
+
+.account-user-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-1);
+  line-height: 1.2;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.account-user-submeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  flex-wrap: wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.meta-dot {
+  color: var(--color-accent-gold);
+}
+
+.account-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.account-signout-btn:hover {
+  background-color: #fee2e2;
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+
+/* ===================================================================
+   2. ACCOUNT NAVIGATION TABS
+   =================================================================== */
+.account-nav-bar {
+  margin-bottom: var(--space-6);
+}
+
+.account-nav-pills {
+  display: flex;
+  gap: var(--space-3);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.account-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px 18px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.account-tab-btn:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-alt);
+}
+
+.account-tab-btn.is-active {
+  background-color: var(--color-text-primary);
+  color: #ffffff;
+  border-color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.account-tab-btn.is-active svg {
+  color: var(--color-accent-gold);
+}
+
+.account-tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-gold-deep);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.account-tab-btn.is-active .account-tab-count {
+  background-color: var(--color-accent-gold);
+  color: var(--color-text-primary);
+}
+
+/* ===================================================================
+   3. ORDER HISTORY STACK & ORDER CARDS
+   =================================================================== */
+.account-orders-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.orders-section-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--space-2);
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.account-sub-heading {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.account-sub-desc {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  margin: 2px 0 0;
+}
+
+.orders-count-label {
+  font-size: var(--text-xs);
+  color: var(--color-accent-gold-deep);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+}
+
+/* Individual Customer Order Card */
+.customer-order-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+  overflow: hidden;
+  transition: all var(--duration-fast);
+}
+
+.customer-order-card:hover {
+  border-color: var(--color-border-medium);
+  box-shadow: var(--shadow-sm);
+}
+
+.c-order-header {
+  padding: var(--space-4) var(--space-6);
+  background-color: #FAF8F4;
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.c-order-id-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.c-order-ref-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.c-order-ref {
+  font-family: var(--font-mono, monospace);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: 0.5px;
+}
+
+.c-order-date {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.c-order-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.c-order-total-price {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.c-order-item-count {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+/* Items Preview List */
+.c-order-items-preview {
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.c-order-item-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-2) 0;
+  border-bottom: 1px dashed var(--color-border-subtle);
+}
+
+.c-order-item-row:last-child {
+  border-bottom: none;
+}
+
+.c-order-item-thumb {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-subtle);
+  background-color: var(--color-bg-alt);
+  flex-shrink: 0;
+}
+
+.c-order-item-info {
+  flex: 1;
+}
+
+.c-order-item-name {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  font-size: var(--text-xs);
+}
+
+.c-order-item-variant {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.c-order-item-qty {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.c-order-item-subtotal {
+  font-weight: 600;
+  font-size: var(--text-xs);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+}
+
+/* Card Footer */
+.c-order-footer {
+  padding: var(--space-3) var(--space-6);
+  background-color: #FCFBF9;
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.c-order-footer-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.c-order-payment-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-alt);
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.c-order-addon-tag {
+  font-size: 11px;
+  color: var(--color-accent-gold-deep);
+  font-weight: 500;
+}
+
+/* ===================================================================
+   4. POLISHED EMPTY STATE
+   =================================================================== */
+.account-empty-state {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-12) var(--space-6);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: var(--space-6) auto;
+}
+
+.empty-state-crest {
+  font-size: 2.5rem;
+  color: var(--color-accent-gold);
+  margin-bottom: var(--space-3);
+}
+
+.empty-state-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-2);
+}
+
+.empty-state-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: 440px;
+  margin: 0 0 var(--space-6);
+}
+
+/* ===================================================================
+   5. PROFILE & ADDRESS FORMS
+   =================================================================== */
+.account-card-panel {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-6) var(--space-8);
+  box-shadow: var(--shadow-sm);
+}
+
+.panel-header {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.panel-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-1);
+}
+
+.panel-subtitle {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.account-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4) var(--space-6);
+}
+
+@media (max-width: 680px) {
+  .account-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.account-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-form-group.span-2 {
+  grid-column: 1 / -1;
+}
+
+.account-label {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  margin-bottom: var(--space-2);
+}
+
+.account-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-medium);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.account-input:focus {
+  outline: none;
+  border-color: var(--color-accent-gold-deep);
+  box-shadow: 0 0 0 2px rgba(197, 168, 128, 0.2);
+}
+
+.account-input:disabled {
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+.account-field-note {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+.account-status-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-accent-gold-light);
+  border: 1px solid rgba(197, 168, 128, 0.3);
+  border-radius: var(--radius-sm);
+}
+
+.status-card-icon {
+  font-size: 1.2rem;
+  color: var(--color-accent-gold-deep);
+}
+
+.status-card-title {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-accent-gold-deep);
+}
+
+.status-card-desc {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.account-form-actions {
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* ===================================================================
+   6. CUSTOMER ORDER DETAIL MODAL
+   =================================================================== */
+.c-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(17, 18, 21, 0.7);
+  backdrop-filter: blur(3px);
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-fast);
+}
+
+.c-modal-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.c-order-modal {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+.c-modal-header {
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #FAF8F4;
+}
+
+.c-modal-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: 4px;
+}
+
+.c-modal-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.c-modal-subtitle {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+
+.c-modal-close {
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  transition: color var(--duration-fast);
+}
+
+.c-modal-close:hover {
+  color: var(--color-text-primary);
+}
+
+.c-modal-body {
+  padding: var(--space-6);
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Dispatch Tracking Banner */
+.c-tracking-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background-color: #F3EFE9;
+  border: 1px solid var(--color-border-medium);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.tracking-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--color-accent-gold-deep);
+}
+
+.tracking-title {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.tracking-sub {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.c-manifest-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .c-manifest-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.c-manifest-section-title {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-accent-gold-deep);
+  margin-bottom: var(--space-2);
+}
+
+.c-manifest-box {
+  background-color: #FAF8F5;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  font-size: var(--text-xs);
+}
+
+.c-dest-name {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.c-dest-address {
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.c-dest-contact {
+  padding-top: 6px;
+  border-top: 1px solid var(--color-border-subtle);
+  color: var(--color-text-muted);
+}
+
+.c-info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.c-info-row:last-child {
+  margin-bottom: 0;
+}
+
+.c-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.c-item-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.c-item-img {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.c-item-meta {
+  flex: 1;
+}
+
+.c-item-name {
+  font-weight: 600;
+  font-size: var(--text-xs);
+  color: var(--color-text-primary);
+}
+
+.c-item-sub {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.c-item-qty {
+  font-size: 10px;
+  color: var(--color-text-muted);
+}
+
+.c-item-total {
+  font-weight: 600;
+  font-size: var(--text-xs);
+  color: var(--color-text-primary);
+}
+
+.c-addon-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  padding: 3px 0;
+}
+
+.c-financials-block {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.c-fin-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: 4px;
+}
+
+.c-fin-total {
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border-medium);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  font-size: var(--text-sm);
+}
+
+.c-fin-total-val {
+  font-size: var(--text-base);
+  color: var(--color-accent-gold-deep);
+}
+
+.c-modal-footer {
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  justify-content: flex-end;
+  background-color: #FAF8F4;
+}
+
+/* ===================================================================
+   7. RESPONSIVE BREAKPOINTS
+   =================================================================== */
+@media (max-width: 680px) {
+  .account-header-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-5);
+    gap: var(--space-4);
+  }
+
+  .account-header-actions {
+    width: 100%;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+
+  .account-nav-pills {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    scrollbar-width: none;
+    gap: var(--space-2);
+    padding-bottom: 4px;
+  }
+
+  .account-nav-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .account-tab-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+
+  .c-order-card {
+    padding: var(--space-4);
+  }
+
+  .c-order-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .c-order-header-right {
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .c-order-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+
+  .c-order-footer .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .c-order-modal {
+    width: 95%;
+    max-height: 88vh;
+    margin: var(--space-3);
+  }
+
+  .c-modal-header {
+    padding: var(--space-4);
+  }
+
+  .c-modal-body {
+    padding: var(--space-4);
+  }
+
+  .c-manifest-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .c-modal-footer {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .c-modal-footer .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+  }
+}
+

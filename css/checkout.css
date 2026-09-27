@@ -1,0 +1,783 @@
+/**
+ * ===================================================================
+ * MAISON AURA — MULTI-STEP CHECKOUT & PAYMENT SIMULATION STYLES
+ * ===================================================================
+ */
+
+/* ===================================================================
+   1. CHECKOUT SECTION & STEPPER
+   =================================================================== */
+.checkout-section {
+  padding: var(--space-8) 0 var(--space-20);
+  background-color: var(--color-bg-primary);
+  min-height: 80vh;
+}
+
+.checkout-stepper-wrap {
+  max-width: 840px;
+  margin: 0 auto var(--space-10);
+}
+
+.checkout-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.checkout-stepper::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 30px;
+  right: 30px;
+  height: 1.5px;
+  background-color: var(--color-border-subtle);
+  z-index: 1;
+}
+
+.step-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  gap: var(--space-2);
+  background-color: var(--color-bg-primary);
+  padding: 0 var(--space-2);
+}
+
+.step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-surface);
+  border: 1.5px solid var(--color-border-medium);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-2xs);
+  font-weight: 700;
+  transition: all var(--transition-normal);
+}
+
+.step-label {
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.step-node.is-active .step-number {
+  background-color: var(--color-bg-dark);
+  border-color: var(--color-bg-dark);
+  color: var(--color-accent-gold-hover);
+  box-shadow: 0 0 0 4px var(--color-accent-gold-subtle);
+}
+
+.step-node.is-active .step-label {
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+.step-node.is-completed .step-number {
+  background-color: var(--color-accent-gold-deep);
+  border-color: var(--color-accent-gold-deep);
+  color: #FFFFFF;
+}
+
+.step-node.is-completed .step-label {
+  color: var(--color-accent-gold-deep);
+}
+
+/* ===================================================================
+   2. CHECKOUT TWO-COLUMN LAYOUT
+   =================================================================== */
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: var(--space-12);
+  align-items: flex-start;
+}
+
+.checkout-main-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-medium);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-card);
+}
+
+.checkout-panel-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.checkout-panel-desc {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+  line-height: var(--leading-relaxed);
+}
+
+/* ===================================================================
+   3. STEP 1: DELIVERY FORM
+   =================================================================== */
+.delivery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.delivery-grid .full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-secondary);
+  margin-bottom: 6px;
+}
+
+.form-input, .form-select {
+  width: 100%;
+  height: 46px;
+  padding: 0 var(--space-4);
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-medium);
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.form-input:focus, .form-select:focus {
+  border-color: var(--color-accent-gold-deep);
+  background-color: var(--color-bg-surface);
+  outline: none;
+}
+
+.form-input.has-error, .form-select.has-error {
+  border-color: var(--color-status-error);
+}
+
+.form-error {
+  font-size: 11px;
+  color: var(--color-status-error);
+  margin-top: 4px;
+  display: none;
+}
+
+.form-error.is-visible {
+  display: block;
+}
+
+/* ===================================================================
+   4. STEP 2: REVIEW & PACKAGING
+   =================================================================== */
+.address-recap-box {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  padding: var(--space-5);
+  margin-bottom: var(--space-6);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.address-recap-text {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.address-recap-name {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.address-recap-edit-btn {
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-accent-gold-deep);
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+}
+
+/* Signature Packaging Card */
+.packaging-card {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-accent-gold-border);
+  padding: var(--space-5);
+  margin-bottom: var(--space-6);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.packaging-card:hover {
+  background-color: var(--color-bg-surface);
+  border-color: var(--color-accent-gold);
+}
+
+.packaging-checkbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  accent-color: var(--color-accent-gold-deep);
+  cursor: pointer;
+}
+
+.packaging-title {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.packaging-desc {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+/* Review Items List */
+.review-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: var(--space-5);
+}
+
+.review-item-row {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.review-item-thumb {
+  width: 60px;
+  height: 60px;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  overflow: hidden;
+}
+
+.review-item-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.review-item-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.review-item-sub {
+  font-size: var(--text-2xs);
+  color: var(--color-text-muted);
+}
+
+.review-item-price {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* ===================================================================
+   5. STEP 3: PAYMENT SIMULATION
+   =================================================================== */
+.payment-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.payment-tab-btn {
+  padding: var(--space-4);
+  border: 1px solid var(--color-border-medium);
+  background-color: var(--color-bg-primary);
+  text-align: center;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.payment-tab-btn.is-active {
+  background-color: var(--color-bg-surface);
+  border-color: var(--color-text-primary);
+  color: var(--color-text-primary);
+  box-shadow: 0 0 0 1px var(--color-text-primary);
+}
+
+.payment-view-panel {
+  display: none;
+}
+
+.payment-view-panel.is-active {
+  display: block;
+}
+
+/* UPI Simulator View */
+.upi-sim-box {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-subtle);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.qr-code-placeholder {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto var(--space-4);
+  background-color: #FFFFFF;
+  border: 2px solid var(--color-bg-dark);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-subtle);
+}
+
+.qr-pattern {
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(45deg, #121316 0, #121316 6px, transparent 6px, transparent 12px), repeating-linear-gradient(-45deg, #121316 0, #121316 6px, #FFFFFF 6px, #FFFFFF 12px);
+  opacity: 0.85;
+}
+
+.upi-apps-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  max-width: 100%;
+}
+
+.upi-app-pill {
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border-medium);
+  background-color: var(--color-bg-surface);
+  border-radius: var(--radius-full);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.upi-app-pill:hover, .upi-app-pill.is-active {
+  border-color: var(--color-accent-gold-deep);
+  color: var(--color-accent-gold-deep);
+}
+
+/* Testing Simulation Toggle */
+.sim-fail-toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: var(--space-4) 0;
+  padding: var(--space-3) var(--space-4);
+  background-color: rgba(150, 56, 56, 0.06);
+  border: 1px dashed rgba(150, 56, 56, 0.3);
+  font-size: var(--text-2xs);
+  color: var(--color-status-error);
+}
+
+/* Payment Processing Modal Overlay */
+.payment-processing-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(18, 19, 22, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+}
+
+.payment-processing-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.processing-card {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-accent-gold-border);
+  padding: var(--space-10) var(--space-8);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+.luxury-spinner {
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--color-border-subtle);
+  border-top-color: var(--color-accent-gold-deep);
+  border-radius: var(--radius-full);
+  margin: 0 auto var(--space-5);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.processing-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+}
+
+.processing-subtitle {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+
+/* Payment Error Card */
+.payment-error-banner {
+  background-color: rgba(150, 56, 56, 0.08);
+  border: 1px solid rgba(150, 56, 56, 0.25);
+  padding: var(--space-4) var(--space-5);
+  margin-bottom: var(--space-6);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--color-status-error);
+}
+
+/* ===================================================================
+   6. STEP 4: ORDER CONFIRMATION
+   =================================================================== */
+.confirmation-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-medium);
+  padding: var(--space-12) var(--space-10);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.confirmation-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto var(--space-4);
+  background-color: var(--color-accent-gold-subtle);
+  border: 1px solid var(--color-accent-gold-border);
+  color: var(--color-accent-gold-deep);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-2xl);
+}
+
+.confirmation-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+}
+
+.confirmation-order-id {
+  display: inline-block;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  padding: var(--space-2) var(--space-5);
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-6);
+}
+
+.confirmation-details-box {
+  text-align: left;
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-subtle);
+  padding: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.confirmation-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-border-subtle);
+  margin-bottom: var(--space-5);
+}
+
+.conf-meta-label {
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-muted);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.conf-meta-val {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* ===================================================================
+   7. SIDEBAR ORDER SUMMARY
+   =================================================================== */
+.checkout-sidebar {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-medium);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-subtle);
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-4));
+}
+
+.sidebar-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.sidebar-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.sidebar-summary-row.total {
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  padding-top: var(--space-3);
+  margin-top: var(--space-3);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+/* ===================================================================
+   8. CUSTOMER ORDER HISTORY MODAL
+   =================================================================== */
+.history-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(18, 19, 22, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+}
+
+.history-modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.history-modal {
+  width: 100%;
+  max-width: 680px;
+  max-height: 85vh;
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-medium);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+}
+
+.history-modal-header {
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-bg-surface);
+}
+
+.history-modal-body {
+  padding: var(--space-6);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.history-order-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  padding: var(--space-5);
+}
+
+.history-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border-subtle);
+  margin-bottom: var(--space-3);
+}
+
+.history-order-status {
+  background-color: rgba(62, 107, 72, 0.12);
+  color: var(--color-status-success);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ===================================================================
+   9. RESPONSIVE BREAKPOINTS
+   =================================================================== */
+@media (max-width: 900px) {
+  .checkout-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  
+  .confirmation-meta-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+}
+
+@media (max-width: 580px) {
+  .delivery-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .checkout-stepper::before {
+    display: none;
+  }
+
+  .checkout-stepper {
+    gap: var(--space-2);
+  }
+
+  .step-node {
+    padding: 0 var(--space-1);
+  }
+
+  .step-label {
+    font-size: 10px;
+    letter-spacing: var(--tracking-wide);
+  }
+  
+  .checkout-main-card {
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .form-input,
+  .form-select {
+    height: 48px;
+    font-size: 16px;
+  }
+
+  .payment-tab-btn {
+    min-height: 48px;
+    font-size: 12px;
+    padding: 10px 8px;
+  }
+
+  .upi-app-btn {
+    min-height: 44px;
+    padding: 8px 12px;
+  }
+  
+  .confirmation-wrap {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .confirmation-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: var(--space-3);
+  }
+
+  .confirmation-actions .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 380px) {
+  .checkout-stepper {
+    gap: 4px;
+  }
+
+  .step-number {
+    font-size: 10px;
+  }
+
+  .step-label {
+    font-size: 9px;
+  }
+
+  .payment-methods-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .card-inline-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
